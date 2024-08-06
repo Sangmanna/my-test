@@ -1,0 +1,44 @@
+mutation AppSubscriptionCreate {
+    appSubscriptionCreate(
+        $name: String!,
+        $test: Boolean!,
+        $returnUrl: String!,
+        lineItems: {
+            plan: {
+                appRecurringPricingDetails: {
+                    interval: EVERY_30_DAYS,
+                    price: { $amount: Decimal!, currencyCode: CAD }
+                }
+            }
+        }
+    ) {
+        confirmationUrl
+        appSubscription {
+            createdAt
+            currentPeriodEnd
+            id
+            name
+            returnUrl
+            status
+            trialDays
+            lineItems {
+                id
+                plan {
+                    pricingDetails {
+                        ... on AppRecurringPricing {
+                            interval
+                            price {
+                                amount
+                                currencyCode
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        userErrors {
+            field
+            message
+        }
+    }
+}

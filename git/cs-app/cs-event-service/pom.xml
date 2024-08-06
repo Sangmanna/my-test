@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.freightcom.clickship</groupId>
+		<artifactId>cs-app</artifactId>
+		<version>6.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cs-event-service</artifactId>
+
+	<name>cs event service</name>
+
+	<properties>
+		<cs.app.version>6.0.0-SNAPSHOT</cs.app.version>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-event-service</connection>
+		<developerConnection>scm:svn:http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-event-service</developerConnection>
+		<url>http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-event-service</url>
+	</scm>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-model</artifactId>
+			<version>${cs.app.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-data</artifactId>
+			<version>${cs.app.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.freightcom.clickship</groupId>
+					<artifactId>cs-model</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+
+		<!-- JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+	
+	<build>
+		<resources>
+			<!-- include jaxb index files -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.index</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+	</build>
+
+</project>

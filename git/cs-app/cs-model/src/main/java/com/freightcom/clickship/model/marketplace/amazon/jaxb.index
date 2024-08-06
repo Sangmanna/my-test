@@ -1,0 +1,11 @@
+Notification
+AmazonEnvelope
+ReportResponse
+OrdersResponse
+GetOrderResponse
+ListOrderItemsResponse
+MatchingProductResponse
+ListMarketplaceResponse
+OrdersResponseByNextToken
+ReportScheduleListResponse
+ReportScheduleCountResponse

@@ -1,0 +1,151 @@
+package com.freightcom.clickship.data.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import com.freightcom.clickship.data.entity.common.BaseEntity;
+
+@Entity
+@Table(name = "marketplace_rtr_status")
+public class MarketplaceRTRStatus extends BaseEntity {
+
+	private static final long serialVersionUID = -1853773616088400445L;
+	
+	@Id
+	@GeneratedValue(generator = "customIdGenerator")
+	@GenericGenerator(name = "customIdGenerator", type = com.freightcom.clickship.data.util.CSIdGenerator.class)
+	@Column(name = "id", nullable = false, updatable = false)
+	private String id;
+	
+	@Column(name = "customer_id", nullable = false)
+	private String customer;
+	
+	@Column(name = "business_name", nullable = false)
+	private String businessName;
+	
+	@Column(name = "marketplace_type", nullable = false)
+	private String type;
+	
+	@Column(name = "marketplace_id", nullable = false)
+	private String marketplace;
+	
+	@Column(name = "store_url", nullable = false)
+	private String storeUrl;
+	
+	@Column(name = "integration_status")
+	private boolean integrationStatus = true;
+	
+	@Column(name = "rtr_activated_cs")
+	private boolean rtrActivatedInCs = false;
+	
+	@Column(name = "old_endpoint_store")
+	private boolean oldEndpointStore = false;
+	
+	@Column(name = "old_endpoint_migrated")
+	private boolean oldEndpointMigrated = false;
+	
+	@Column(name = "err_msg")
+	private String errors;
+	
+	public MarketplaceRTRStatus() {
+		super();
+	}
+	
+	public MarketplaceRTRStatus(String customer, String businessName, String marketplace, String type, String url) {
+		super();
+		this.storeUrl = url;
+		this.customer = customer;
+		this.type = type;
+		this.marketplace = marketplace;
+		this.businessName = businessName;
+	}
+
+	@Override
+	public String getId() {
+		return id;
+	}
+
+	@Override
+	public MarketplaceRTRStatus setId(String id) {
+		this.id = id;
+		return this;
+	}
+
+	public String getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public String getMarketplace() {
+		return marketplace;
+	}
+
+	public void setMarketplace(String marketplace) {
+		this.marketplace = marketplace;
+	}
+
+	public String getStoreUrl() {
+		return storeUrl;
+	}
+
+	public void setStoreUrl(String storeUrl) {
+		this.storeUrl = storeUrl;
+	}
+
+	public boolean isIntegrationStatus() {
+		return integrationStatus;
+	}
+
+	public void setIntegrationStatus(boolean integrationStatus) {
+		this.integrationStatus = integrationStatus;
+	}
+
+	public boolean isRtrActivatedInCs() {
+		return rtrActivatedInCs;
+	}
+
+	public void setRtrActivatedInCs(boolean rtrActivatedInCs) {
+		this.rtrActivatedInCs = rtrActivatedInCs;
+	}
+
+	public boolean isOldEndpointStore() {
+		return oldEndpointStore;
+	}
+
+	public void setOldEndpointStore(boolean oldEndpointStore) {
+		this.oldEndpointStore = oldEndpointStore;
+	}
+
+	public String getErrors() {
+		return errors;
+	}
+
+	public void setErrors(String errors) {
+		this.errors = errors;
+	}
+
+	public boolean isOldEndpointMigrated() {
+		return oldEndpointMigrated;
+	}
+
+	public void setOldEndpointMigrated(boolean oldEndpointMigrated) {
+		this.oldEndpointMigrated = oldEndpointMigrated;
+	}
+	
+}

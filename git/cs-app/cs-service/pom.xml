@@ -1,0 +1,218 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.freightcom.clickship</groupId>
+		<artifactId>cs-app</artifactId>
+		<version>6.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cs-service</artifactId>
+
+	<name>cs-service</name>
+
+	<properties>
+		<cs.app.version>6.0.0-SNAPSHOT</cs.app.version>
+		<cs.chargebee.version>2.0.0-SNAPSHOT</cs.chargebee.version>
+	</properties>
+
+	<scm>
+		<connection>scm:svn:http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-service</connection>
+		<developerConnection>scm:svn:http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-service</developerConnection>
+		<url>http://104.153.56.169:18080/svn/clickship20/cs-app/trunk/cs-service</url>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-event-service</artifactId>
+			<version>${cs.app.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.freightcom.clickship</groupId>
+					<artifactId>cs-data</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.freightcom.clickship</groupId>
+					<artifactId>cs-model</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-model</artifactId>
+			<version>${cs.app.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-data</artifactId>
+			<version>${cs.app.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.freightcom.clickship</groupId>
+					<artifactId>cs-model</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-client</artifactId>
+			<version>${cs.app.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.freightcom.clickship</groupId>
+					<artifactId>cs-model</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.freightcom.clickship</groupId>
+			<artifactId>cs-chargebee-service</artifactId>
+			<version>${cs.chargebee.version}</version>
+		</dependency>
+
+		<!-- JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.jaxb</groupId>
+					<artifactId>jaxb-runtime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>6.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-translate</artifactId>
+			<version>1.12.676</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>-->
+		<dependency>
+			<groupId>com.github.alexanderwe</groupId>
+			<artifactId>bananaj</artifactId>
+			<version>1.2.5-alpha</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.mandrillapp.wrapper.lutung</groupId>
+			<artifactId>lutung</artifactId>
+			<version>0.0.8</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<!-- include jaxb index files -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.index</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

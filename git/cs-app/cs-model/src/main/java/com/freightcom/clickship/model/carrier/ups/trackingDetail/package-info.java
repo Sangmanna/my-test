@@ -1,0 +1,1 @@
+package com.freightcom.clickship.model.carrier.ups.trackingDetail;

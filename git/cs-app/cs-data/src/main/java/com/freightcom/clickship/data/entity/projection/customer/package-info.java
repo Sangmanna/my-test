@@ -1,0 +1,1 @@
+package com.freightcom.clickship.data.entity.projection.customer;
